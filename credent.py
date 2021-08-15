@@ -7,7 +7,7 @@ import gmplot
 
 '''This loads my Twitter API keys from a json file and store in cred'''
 
-with open(r'C:\Users\richa\OneDrive\Desktop\Scrape\Twi_API.json') as jsonFile:
+with open(r'C:\Users\richa\Secret\Twi_API.json') as jsonFile:
     cred = json.load(jsonFile)
 
 lst = []
@@ -57,7 +57,7 @@ stream = MyStreamer(cred["consumer_key"], cred["app_secret"], cred["oauth_token"
 Adding an engine argument to streamer helps Python to do the fine conversion.'''
 stream.statuses.filter(track='python', engine='python')
 
-'''The next part extracts the location from collected data and renders on Google map.''''The two numbers are equal?' + ' ' +
+'''The next part extracts the location from collected data and renders on Google map.''''
 
 tweets = pd.read_csv("saved_tweets2.csv", names = ['hashtags', 'text', 'user', 'user_loc'])
 
@@ -83,5 +83,5 @@ gmap = gmplot.GoogleMapPlotter(30, 0, 3)
 
 gmap.heatmap(coordinates['lat'], coordinates['long'], radius=20)
 
-#Save the map to html file
+#Save the map as html file and render on a browser
 gmap.draw("Tweet_python.html")
